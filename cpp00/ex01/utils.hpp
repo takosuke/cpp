@@ -1,5 +1,6 @@
-#include <iostream>
+#ifndef UTILS_H
+# define UTILS_H
 #include <string>
-#include <iomanip>
 
 std::string truncate(const std::string& str, size_t max);
+#endif

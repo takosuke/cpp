@@ -1,10 +1,6 @@
-#ifndef CONTACT_H
-# define CONTACT_H
+#pragma once
 
 #include <string>
-#include <iostream>
-#include <iomanip>
-#include "utils.hpp"
 
 class Contact
 {
@@ -17,14 +13,11 @@ class Contact
 	public:
 		Contact();
 		~Contact();
-		void setFirstName(const std::string& firstName);
-		void setLastName(const std::string& lastName);
-		void setNickName(const std::string& nickName);
-		void setPhoneNr(const std::string& phoneNr);
-		void setDarkestSecret(const std::string& darkestSecret);
+
+		std::string	addContactField(std::string msg);
+		void	setInfo();
 		std::string getFirstName(void);
 		std::string getLastName(void);
 		std::string getNickName(void);
 		void displayContact(int index);
 };
-#endif

@@ -18,6 +18,8 @@ int	main() {
 			thePhoneBook.addContact();
 		else if (command == "SEARCH")
 			thePhoneBook.searchContact();
+		else if (command == "LIST")
+			thePhoneBook.listContacts();
 		else if (command == "EXIT" || std::cin.eof())
 		{
 			std::cout << "Bye bye" << std::endl;

@@ -1,128 +1,55 @@
 #include "PhoneBook.hpp"
+#include <filesystem>
 #include <ios>
 #include <limits>
+#include <string>
+#include <iostream>
 
-PhoneBook::PhoneBook()
-{
-	this->_index = 0;
-}
-
-PhoneBook::~PhoneBook()
-{}
+PhoneBook::PhoneBook() : _index(0), _last(-1) {}
+PhoneBook::~PhoneBook() {}
 
 void PhoneBook::addContact(void)
 {
 	std::string	input;
 
-	std::cout << "Insert first name: " << std::endl;
-	while (true)
-	{
-		if (std::getline(std::cin, input))
-		{
-			if (input.empty())
-			{
-				std::cout << "field cannot be empty" << std::endl;
-				continue;
-			}
-			else
-			{
-				this->_contacts[this->_index].setFirstName(input);
-				break ;
-			}
-		}
-	}
-	std::cout << "Insert last name: " << std::endl;
-	while (true)
-	{
-		if (std::getline(std::cin, input))
-		{
-			if (input.empty())
-			{
-				std::cout << "field cannot be empty" << std::endl;
-				continue;
-			}
-			else
-			{
-				this->_contacts[this->_index].setLastName(input);
-				break ;
-			}
-		}
-	}
-	std::cout << "Insert nickname: " << std::endl;
-	while (true)
-	{
-		if (std::getline(std::cin, input))
-		{
-			if (input.empty())
-			{
-				std::cout << "field cannot be empty" << std::endl;
-				continue;
-			}
-			else
-			{
-				this->_contacts[this->_index].setNickName(input);
-				break ;
-			}
-		}
-	}
-	std::cout << "Insert phone number: " << std::endl;
-	while (true)
-	{
-		if (std::getline(std::cin, input))
-		{
-			if (input.empty())
-			{
-				std::cout << "field cannot be empty" << std::endl;
-				continue;
-			}
-			else
-			{
-				this->_contacts[this->_index].setPhoneNr(input);
-				break ;
-			}
-		}
-	}
-	std::cout << "Tell me your darkest secret: " << std::endl;
-	while (true)
-	{
-		if (std::getline(std::cin, input))
-		{
-			if (input.empty())
-			{
-				std::cout << "field cannot be empty" << std::endl;
-				continue;
-			}
-			else
-			{
-				this->_contacts[this->_index].setDarkestSecret(input);
-				break ;
-			}
-		}
-	}
-	this->_contacts[this->_index].displayContact(_index);
-	std::cout << "Contact Added" << std::endl;
-	if (this->_index < 7)
-		this->_index++;
+	_last = _index;
+	_contacts[_index].setInfo();
+	_contacts[_index].displayContact(_index);
+	std::cout << "Contact nr " << _index <<  " Added" << std::endl;
+	if (_index < 7)
+		_index++;
 }
 
 void PhoneBook::searchContact(void)
 {
 	int	index;
 
-	if (this->_index == 0)
+	if (_index == 0)
 	{
 		std::cout << "No contacts yet please add some first" << std::endl;
 		return ;
 	}
-	std::cout << "Select a contact by index [0 - " << this->_index - 1 << "]" << std::endl;
+	std::cout << "Select a contact by index [0 - " << _last << "]" << std::endl;
 	if (!(std::cin >> index ))
 		std::cout << "Error" << std::endl;
-	if (index > this->_index - 1 || index < 0)
+	if (index > _last || index < 0)
 	{
 		std::cout << "Error: Index not in range" << std::endl;
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		return ;
 	}
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	this->_contacts[index].displayContact(index);
+	_contacts[index].displayContact(index);
+}
+
+void PhoneBook::listContacts(void)
+{
+	if (_index > 0)
+	{
+		std::cout << "LIST OF CONTACTS: " << std::endl;
+		for (int i = 0; i <= _last; i++)
+			_contacts[i].displayContact(i);
+	}
+	else
+		std::cout << "No contacts in the phone book please add some" << std::endl;
 }

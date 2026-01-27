@@ -17,11 +17,11 @@ $(TARGET): $(OBJS)
 
 .PHONY: clean
 clean:
-	rm -f $(TARGET)
+	rm $(OBJS)
 
 .PHONY: fclean
 fclean: clean
+	rm -f $(TARGET)
 
 .PHONY: re
-re: clean all
-
+re: fclean all
