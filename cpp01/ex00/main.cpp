@@ -2,8 +2,8 @@
 
 int	main(void)
 {
-	randomChump("randomZombieExpress");
-	Zombie *myZombie = newZombie("poopyHeapZombie");
+	randomChump("Zombie Express");
+	Zombie *myZombie = newZombie("Poopy Heap Zombie");
 	myZombie->announce();
 	delete myZombie;
 	return (0);

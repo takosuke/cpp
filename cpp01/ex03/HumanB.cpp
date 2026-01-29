@@ -1,14 +1,18 @@
 #include "HumanB.hpp"
-#include "Weapon.hpp"
+#include <iostream>
 
-HumanB(std::string name) : _name(name) {}
+HumanB::HumanB(std::string name) : _name(name), _weapon(NULL) {}
+HumanB::~HumanB() {}
 
 void HumanB::setWeapon(Weapon& weapon)
 {
-	_weapon = weapon;
+	_weapon = &weapon;
 }
 
 void HumanB::attack()
 {
-	std::cout << _name << " attacks with their " << _weapon.getType() << std::endl;
+	if (_weapon == NULL)
+		std::cout << _name << " is unarmed so just farts in their opponents general direction!" << std::endl;
+	else
+		std::cout << _name << " attacks with their " << _weapon->getType() << std::endl;
 }

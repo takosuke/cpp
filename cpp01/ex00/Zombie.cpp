@@ -1,10 +1,11 @@
 #include "Zombie.hpp"
+#include <iostream>
 
-Zombie::Zombie(std::string _name) : name(_name) {}
+Zombie::Zombie(std::string name) : _name(name) {}
 
 Zombie::~Zombie() {}
 
 void	Zombie::announce(void) const
 {
-	std::cout << "<" << name << ">: BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << "<" << _name << ">: BraiiiiiiinnnzzzZ..." << std::endl;
 }
