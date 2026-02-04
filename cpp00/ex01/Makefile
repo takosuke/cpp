@@ -1,8 +1,7 @@
 CFLAGS = -ggdb -Wall -Wextra -Werror -std=c++98
-CC = g++
+CC = c++
 
 TARGET = phonebook_app
-#SOURCE = PhoneBook.cpp phonebook_app.cpp
 SOURCE = $(wildcard *.cpp)
 OBJS := $(SOURCE:.cpp=.o)
 
