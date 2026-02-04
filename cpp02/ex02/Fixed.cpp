@@ -19,16 +19,14 @@ Fixed::Fixed(int x) : _x(x << _bits)
 	std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::Fixed(float x) : _x((int)roundf(x * (1 << _bits))) 
+Fixed::Fixed(float x) : _x((int)roundf(x * (1 << _bits)))
 {
-	std::cout << "Int constructor called" << std::endl;
+	std::cout << "Float constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed& fp)
+Fixed::Fixed(const Fixed& fp) : _x(fp._x)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = fp;
-
 }
 Fixed &Fixed::operator=(const Fixed& fp) 
 {
@@ -77,12 +75,16 @@ bool Fixed::operator!=(const Fixed& fp) const
 
 Fixed Fixed::operator+(const Fixed& fp) const
 {
-	return Fixed(this->getRawBits() + fp.getRawBits());
+	Fixed result;
+	result.setRawBits(this->_x + fp._x);
+	return result;
 }
 
 Fixed Fixed::operator-(const Fixed& fp) const
 {
-	return Fixed(this->getRawBits() - fp.getRawBits());
+	Fixed result;
+	result.setRawBits(this->_x - fp._x);
+	return result;
 }
 
 Fixed Fixed::operator*(const Fixed& fp) const
