@@ -4,6 +4,19 @@
 
 void printWelcome(void)
 {
+	std::cout << std::endl;
+	std::cout << COLOR_CYAN << "     ______________" << COLOR_RESET << std::endl;
+	std::cout << COLOR_CYAN << "    |  __________  |" << COLOR_RESET << std::endl;
+	std::cout << COLOR_CYAN << "    | |" << COLOR_GREEN << "  PHONE   " << COLOR_CYAN << "| |" << COLOR_RESET << std::endl;
+	std::cout << COLOR_CYAN << "    | |" << COLOR_GREEN << "   BOOK   " << COLOR_CYAN << "| |" << COLOR_RESET << std::endl;
+	std::cout << COLOR_CYAN << "    | |__________| |" << COLOR_RESET << std::endl;
+	std::cout << COLOR_CYAN << "    |   ________   |" << COLOR_RESET << std::endl;
+	std::cout << COLOR_CYAN << "    |  |" << COLOR_WHITE << "1" << COLOR_CYAN << "||" << COLOR_WHITE << "2" << COLOR_CYAN << "||" << COLOR_WHITE << "3" << COLOR_CYAN << "|  |" << COLOR_RESET << std::endl;
+	std::cout << COLOR_CYAN << "    |  |" << COLOR_WHITE << "4" << COLOR_CYAN << "||" << COLOR_WHITE << "5" << COLOR_CYAN << "||" << COLOR_WHITE << "6" << COLOR_CYAN << "|  |" << COLOR_RESET << std::endl;
+	std::cout << COLOR_CYAN << "    |  |" << COLOR_WHITE << "7" << COLOR_CYAN << "||" << COLOR_WHITE << "8" << COLOR_CYAN << "||" << COLOR_WHITE << "9" << COLOR_CYAN << "|  |" << COLOR_RESET << std::endl;
+	std::cout << COLOR_CYAN << "    |  |" << COLOR_WHITE << "*" << COLOR_CYAN << "||" << COLOR_WHITE << "0" << COLOR_CYAN << "||" << COLOR_WHITE << "#" << COLOR_CYAN << "|  |" << COLOR_RESET << std::endl;
+	std::cout << COLOR_CYAN << "    |__|________|__|" << COLOR_RESET << std::endl;
+	std::cout << std::endl;
 	std::cout << COLOR_YELLOW;
 	std::cout << "    _____  _                      ____              _    " << std::endl;
 	std::cout << "   |  __ \\| |                    |  _ \\            | |   " << std::endl;
@@ -12,14 +25,6 @@ void printWelcome(void)
 	std::cout << "   | |    | | | | (_) | | | |  __/ |_) | (_) | (_) |   < " << std::endl;
 	std::cout << "   |_|    |_| |_|\\___/|_| |_|\\___|____/ \\___/ \\___/|_|\\_\\" << std::endl;
 	std::cout << COLOR_RESET << std::endl;
-	std::cout << COLOR_CYAN << "        .------." << COLOR_RESET << std::endl;
-	std::cout << COLOR_CYAN << "       /        \\" << COLOR_RESET << std::endl;
-	std::cout << COLOR_CYAN << "      |  " << COLOR_WHITE << "1 2 3" << COLOR_CYAN << "  |" << COLOR_RESET << std::endl;
-	std::cout << COLOR_CYAN << "      |  " << COLOR_WHITE << "4 5 6" << COLOR_CYAN << "  |" << COLOR_RESET << std::endl;
-	std::cout << COLOR_CYAN << "      |  " << COLOR_WHITE << "7 8 9" << COLOR_CYAN << "  |" << COLOR_RESET << std::endl;
-	std::cout << COLOR_CYAN << "      |  " << COLOR_WHITE << "* 0 #" << COLOR_CYAN << "  |" << COLOR_RESET << std::endl;
-	std::cout << COLOR_CYAN << "       \\________/" << COLOR_RESET << std::endl;
-	std::cout << std::endl;
 }
 
 void printGoodbye(void)
