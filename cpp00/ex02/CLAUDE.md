@@ -9,12 +9,14 @@ This is 42 School's C++ Module 00, Exercise 02 - a bank account simulation exerc
 ## Build Commands
 
 ```bash
-# Compile (no Makefile provided)
-c++ -Wall -Wextra -Werror -std=c++98 Account.cpp tests.cpp -o account
+make        # Build the project
+make clean  # Remove object files
+make fclean # Remove object files and executable
+make re     # Rebuild from scratch
 
-# Run and compare with expected output
+# Run and compare with expected output (ignoring timestamps)
 ./account
-diff <(./account) 19920104_091532.log
+diff <(./account | sed 's/\[[0-9_]*\]//g') <(sed 's/\[[0-9_]*\]//g' 19920104_091532.log)
 ```
 
 ## Architecture
