@@ -1,12 +1,12 @@
 #include "FragTrap.hpp"
 #include <iostream>
 
-FragTrap::FragTrap(void) : ClapTrap("Default", 100, 50, 20) 
+FragTrap::FragTrap(void) : ClapTrap("Default", 100, 100, 30)
 {
 	std::cout << "FragTrap created with default constructor" << std::endl;
 }
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 50, 20) 
+FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 30)
 {
 	std::cout << "FragTrap created with parametrized constructor" << std::endl;
 }
@@ -32,6 +32,20 @@ FragTrap &FragTrap::operator=(const FragTrap& st)
 FragTrap::~FragTrap(void)
 {
 	std::cout << "Destructor used on " << _name << std::endl;
+}
+
+void FragTrap::attack(const std::string& target)
+{
+	if (_hp <= 0)
+		std::cout << _name << " can't attack because it's out of hit points" << std::endl;
+	else if (_ep <= 0)
+		std::cout << _name << " can't attack because it's out of energy points" << std::endl;
+	else
+	{
+		std::cout << "FragTrap " << _name << " attacks " << target << " inflicting "
+			<< _damage << " points of damage" << std::endl;
+		_ep--;
+	}
 }
 
 void FragTrap::highFiveGuys()

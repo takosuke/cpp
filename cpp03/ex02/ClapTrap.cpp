@@ -1,9 +1,9 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-ClapTrap::ClapTrap(void) : _name("Unnamed"), _hp(10), _ep(10), _damage(10)
+ClapTrap::ClapTrap(void) : _name("Unnamed"), _hp(10), _ep(10), _damage(0)
 {
-	std::cout << "Constructed ClapTrap (default constructor)" << _name << std::endl;
+	std::cout << "Constructed ClapTrap (default constructor) " << _name << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name, unsigned int hp, unsigned int ep, unsigned int damage) : _name(name), _hp(hp), _ep(ep), _damage(damage)
@@ -11,9 +11,9 @@ ClapTrap::ClapTrap(std::string name, unsigned int hp, unsigned int ep, unsigned 
 	std::cout << "Constructed ClapTrap " << _name << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap& ct)
+ClapTrap::ClapTrap(const ClapTrap& ct) : _name(ct._name), _hp(ct._hp), _ep(ct._ep), _damage(ct._damage)
 {
-	*this = ct;
+	std::cout << "Copy Constructed ClapTrap " << _name << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap& ct)

@@ -1,8 +1,8 @@
-CFLAGS = -ggdb -Wall -Wextra -Werror -std=c++98
-CC = g++
+CFLAGS = -Wall -Wextra -Werror -std=c++98
+CC = c++
 
 TARGET = ClapTrap
-SOURCE = $(wildcard *.cpp)
+SOURCE = ClapTrap.cpp main.cpp
 OBJS := $(SOURCE:.cpp=.o)
 
 .PHONY: all
@@ -22,7 +22,5 @@ clean:
 fclean: clean
 	rm -f $(TARGET)
 
-
 .PHONY: re
 re: clean all
-
