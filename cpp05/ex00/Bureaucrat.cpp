@@ -1,5 +1,11 @@
 #include "Bureaucrat.hpp"
 
+std::ostream &operator<<(std::ostream & out, const Bureaucrat& burro)
+{
+	out << burro.getName();
+	return out;
+}
+
 Bureaucrat::Bureaucrat() : _name("Default Bureaucrat"), _grade(150)
 {}
 
@@ -30,16 +36,16 @@ unsigned int Bureaucrat::validateGrade(unsigned int grade)
 	if (grade < _max_grade)
 		throw Bureaucrat::GradeTooHighException("Maximum grade is 1");
 	if (grade > _min_grade)
-		throw Bureaucrat::GradeTooLowException("Minimums grade is 150");
+		throw Bureaucrat::GradeTooLowException("Minimum grade is 150");
 	return grade;
 }
 
-std::string Bureaucrat::getName()
+std::string Bureaucrat::getName() const
 {
 	return _name;
 }
 
-int Bureaucrat::getGrade()
+int Bureaucrat::getGrade() const
 {
 	return _grade;
 }

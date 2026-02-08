@@ -18,8 +18,8 @@ class Bureaucrat
 		Bureaucrat& operator=(const Bureaucrat& burro);
 		~Bureaucrat();
 
-		std::string getName();
-		int getGrade();
+		std::string getName() const;
+		int getGrade() const;
 		void inc_grade();
 		void dec_grade();
 
