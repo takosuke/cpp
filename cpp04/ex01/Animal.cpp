@@ -10,9 +10,8 @@ Animal::Animal(std::string type) : _type(type)
 	std::cout << "animal base parametrized constructor called" << std::endl;
 }
 
-Animal::Animal(const Animal& a)
+Animal::Animal(const Animal& a): _type(a._type)
 {
-	*this = a;
 	std::cout << "animal base copy constructor called" << std::endl;
 }
 
@@ -26,6 +25,11 @@ Animal& Animal::operator=(const Animal& a)
 Animal::~Animal(void)
 {
 	std::cout << "animal base destructor called" << std::endl;
+}
+
+std::string Animal::getType(void) const
+{
+	return _type;
 }
 
 void Animal::makeSound(void) const

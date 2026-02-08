@@ -1,24 +1,29 @@
 #include "FragTrap.hpp"
 #include <iostream>
 
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define CYAN    "\033[36m"
+
 FragTrap::FragTrap(void) : ClapTrap("Default", 100, 100, 30)
 {
-	std::cout << "FragTrap created with default constructor" << std::endl;
+	std::cout << GREEN << "FragTrap created with default constructor" << RESET << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 30)
 {
-	std::cout << "FragTrap created with parametrized constructor" << std::endl;
+	std::cout << GREEN << "FragTrap created with parametrized constructor" << RESET << std::endl;
 }
 
 FragTrap::FragTrap( const FragTrap& st): ClapTrap(st)
 {
-	std::cout << "FragTrap " << st._name << " copy constructor called" << std::endl;
+	std::cout << GREEN << "FragTrap " << st._name << " copy constructor called" << RESET << std::endl;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap& st)
 {
-	std::cout << "Used assigned operator to copy " << st.getName() << std::endl;
+	std::cout << GREEN << "Used assigned operator to copy " << st.getName() << RESET << std::endl;
 	if (this != &st)
 	{
 		this->_name = st.getName();
@@ -31,19 +36,19 @@ FragTrap &FragTrap::operator=(const FragTrap& st)
 
 FragTrap::~FragTrap(void)
 {
-	std::cout << "Destructor used on " << _name << std::endl;
+	std::cout << RED << "Destructor used on " << _name << RESET << std::endl;
 }
 
 void FragTrap::attack(const std::string& target)
 {
 	if (_hp <= 0)
-		std::cout << _name << " can't attack because it's out of hit points" << std::endl;
+		std::cout << CYAN << _name << " can't attack because it's out of hit points" << RESET << std::endl;
 	else if (_ep <= 0)
-		std::cout << _name << " can't attack because it's out of energy points" << std::endl;
+		std::cout << CYAN << _name << " can't attack because it's out of energy points" << RESET << std::endl;
 	else
 	{
-		std::cout << "FragTrap " << _name << " attacks " << target << " inflicting "
-			<< _damage << " points of damage" << std::endl;
+		std::cout << CYAN << "FragTrap " << _name << " attacks " << target << " inflicting "
+			<< _damage << " points of damage" << RESET << std::endl;
 		_ep--;
 	}
 }

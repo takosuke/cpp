@@ -1,0 +1,126 @@
+
+Chapter II: General rules
+
+Compiling
+
+    Compile your code with c++ and the flags -Wall -Wextra -Werror.
+
+    Your code should still compile if you add the flag -std=c++98.
+
+Formatting and naming conventions
+
+    The exercise directories will be named this way: ex00, ex01, ..., exn.
+
+    Name your files, classes, functions, member functions and attributes as required in the guidelines.
+
+    Write class names in UpperCamelCase format. Files containing class code will always be named according to the class name (e.g., ClassName.hpp, ClassName.cpp).
+
+    Unless specified otherwise, every output message must end with a newline character and be displayed to the standard output.
+
+    No coding style is enforced (Goodbye Norminette!), but code must be clean and readable for peer evaluators.
+
+Allowed/Forbidden
+
+    You are encouraged to use C++ versions of C functions from the standard library.
+
+    Forbidden: External libraries (including C++11 and Boost), *printf(), *alloc(), and free().
+
+    Forbidden: The using namespace <ns_name> and friend keywords (unless explicitly stated), and the STL (Containers/Algorithms) until Modules 08 and 09.
+
+Design requirements
+
+    Avoid memory leaks when using new.
+
+    Classes must be designed in the Orthodox Canonical Form.
+
+    No function implementations in header files (except for templates).
+
+    Headers must use include guards and include all necessary dependencies.
+
+Chapter IV: Exercise 00: Aaaaand... OPEN!
+
+    Turn-in directory: ex00/
+
+    Files to turn in: Makefile, main.cpp, ClapTrap.{h, hpp}, ClapTrap.cpp
+
+    Forbidden functions: None 
+
+Implement a class named ClapTrap with the following private attributes:
+
+    Name: Passed to the constructor.
+
+    Hit points: 10.
+
+    Energy points: 10.
+
+    Attack damage: 0.
+
+Public member functions:
+
+    void attack(const std::string& target);
+
+    void takeDamage(unsigned int amount);
+
+    void beRepaired(unsigned int amount); 
+
+Rules:
+
+    Attacking and repairing cost 1 energy point.
+
+    ClapTrap cannot act if it has 0 hit points or energy points.
+
+    All member functions, constructors, and destructors must print descriptive messages to the console.
+
+Chapter V: Exercise 01: Serena, my love!
+
+    Turn-in directory: ex01/
+
+    Files to turn in: Files from ex00 + ScavTrap.{h, hpp}, ScavTrap.cpp 
+
+Create a derived class named ScavTrap that inherits from ClapTrap.
+
+    Construction/Destruction: Must show proper chaining (ClapTrap first, then ScavTrap; destruction in reverse).
+
+    Attributes: Hit points (100), Energy points (50), Attack damage (20).
+
+    Special Ability: void guardGate(); displays a message that ScavTrap is in Gatekeeper mode.
+
+Chapter VI: Exercise 02: Repetitive work
+
+    Turn-in directory: ex02/
+
+    Files to turn in: Previous files + FragTrap.{h, hpp}, FragTrap.cpp 
+
+Implement a FragTrap class inheriting from ClapTrap:
+
+    Attributes: Hit points (100), Energy points (100), Attack damage (30).
+
+    Special Ability: void highFivesGuys(void); displays a positive high-five request.
+
+    Must also show proper construction/destruction chaining with unique messages.
+
+Chapter VII: Exercise 03: Now it’s weird!
+
+    Turn-in directory: ex03/
+
+    Files to turn in: Previous files + DiamondTrap.{h, hpp}, DiamondTrap.cpp 
+
+Create a DiamondTrap class that inherits from both FragTrap AND ScavTrap:
+
+    Attributes inherited from:
+
+        Name: Constructor parameter.
+
+        ClapTrap::name: Constructor parameter + "_clap_name" suffix.
+
+        Hit points: FragTrap.
+
+        Energy points: ScavTrap.
+
+        Attack damage: FragTrap.
+
+        attack(): ScavTrap.
+
+    Special Ability: void whoAmI(); displays both its name and its ClapTrap name.
+
+    The ClapTrap subobject must be created only once.

@@ -22,3 +22,8 @@ WrongCat::~WrongCat(void)
 {
 	std::cout << "WrongCat destructor called" << std::endl;
 }
+
+void WrongCat::makeSound(void) const
+{
+	std::cout << "WRONG MIAU" << std::endl;
+}

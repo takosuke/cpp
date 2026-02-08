@@ -1,24 +1,31 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define CYAN    "\033[36m"
+#define MAGENTA "\033[35m"
+#define BLUE    "\033[34m"
+
 ClapTrap::ClapTrap(void) : _name("Unnamed"), _hp(10), _ep(10), _damage(0)
 {
-	std::cout << "Constructed ClapTrap (default constructor) " << _name << std::endl;
+	std::cout << GREEN << "Constructed ClapTrap (default constructor) " << _name << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name, unsigned int hp, unsigned int ep, unsigned int damage) : _name(name), _hp(hp), _ep(ep), _damage(damage)
 {
-	std::cout << "Constructed ClapTrap " << _name << std::endl;
+	std::cout << GREEN << "Constructed ClapTrap " << _name << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& ct) : _name(ct._name), _hp(ct._hp), _ep(ct._ep), _damage(ct._damage)
 {
-	std::cout << "Copy Constructed ClapTrap " << _name << std::endl;
+	std::cout << GREEN << "Copy Constructed ClapTrap " << _name << RESET << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap& ct)
 {
-	std::cout << "Used assigned operator to copy " << ct.getName() << std::endl;
+	std::cout << GREEN << "Used assigned operator to copy " << ct.getName() << RESET << std::endl;
 	this->_name = ct.getName();
 	this->_hp = ct.getHp();
 	this->_ep = ct.getEp();
@@ -28,7 +35,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap& ct)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructed ClapTrap " << _name << std::endl;
+	std::cout << RED << "Destructed ClapTrap " << _name << RESET << std::endl;
 }
 
 std::string ClapTrap::getName(void) const { return _name; }
@@ -39,13 +46,13 @@ int ClapTrap::getDamage(void) const { return _damage; }
 void ClapTrap::attack(const std::string& target)
 {
 	if (_hp <= 0)
-		std::cout << _name << " can't attack because it's out of hit points" << std::endl;
+		std::cout << CYAN << _name << " can't attack because it's out of hit points" << RESET << std::endl;
 	else if (_ep <= 0)
-		std::cout << _name << " can't attack because it's out of energy points" << std::endl;
+		std::cout << CYAN << _name << " can't attack because it's out of energy points" << RESET << std::endl;
 	else
 	{
-		std::cout << _name << " attacks ClapTrap " << target << " inflicting " 
-			<< _damage << " points of damage" << std::endl;
+		std::cout << CYAN << _name << " attacks ClapTrap " << target << " inflicting "
+			<< _damage << " points of damage" << RESET << std::endl;
 		_ep--;
 	}
 }
@@ -54,10 +61,10 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (_hp > 0)
 	{
-		std::cout << _name << " takes " << amount << " points of damage" << std::endl;
+		std::cout << MAGENTA << _name << " takes " << amount << " points of damage" << RESET << std::endl;
 		if (amount >= _hp)
 		{
-			std::cout << _name << " died." << std::endl;
+			std::cout << MAGENTA << _name << " died." << RESET << std::endl;
 			_hp = 0;
 		}
 		else
@@ -66,18 +73,18 @@ void ClapTrap::takeDamage(unsigned int amount)
 		}
 	}
 	else
-		std::cout << _name << " is dead and can't take any more damage" << std::endl;
+		std::cout << MAGENTA << _name << " is dead and can't take any more damage" << RESET << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (_hp <= 0)
-		std::cout << _name << " can't repair itself because it's dead" << std::endl;
+		std::cout << BLUE << _name << " can't repair itself because it's dead" << RESET << std::endl;
 	else if (_ep <= 0)
-		std::cout << _name << " can't repair itself because it's out of energy points" << std::endl;
+		std::cout << BLUE << _name << " can't repair itself because it's out of energy points" << RESET << std::endl;
 	else
 	{
-		std::cout << _name << " was repaired and recovered " << amount << " hit points!" << std::endl;
+		std::cout << BLUE << _name << " was repaired and recovered " << amount << " hit points!" << RESET << std::endl;
 		_hp += amount;
 		_ep --;
 	}

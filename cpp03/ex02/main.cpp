@@ -3,9 +3,12 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
+#define RESET  "\033[0m"
+#define YELLOW "\033[33m"
+
 int main(void)
 {
-	std::cout << "=== FragTrap Orthodox Canonical Form ===" << std::endl;
+	std::cout << YELLOW << "=== FragTrap Orthodox Canonical Form ===" << RESET << std::endl;
 	{
 		FragTrap a;
 		FragTrap b("Bravo");
@@ -15,7 +18,7 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== FragTrap stats check (100/100/30) ===" << std::endl;
+	std::cout << YELLOW << "=== FragTrap stats check (100/100/30) ===" << RESET << std::endl;
 	{
 		FragTrap ft("Frag");
 		std::cout << "HP: " << ft.getHp()
@@ -24,7 +27,7 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== ScavTrap stats check (100/50/20) ===" << std::endl;
+	std::cout << YELLOW << "=== ScavTrap stats check (100/50/20) ===" << RESET << std::endl;
 	{
 		ScavTrap sv("Scav");
 		std::cout << "HP: " << sv.getHp()
@@ -33,19 +36,19 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== Construction/destruction chaining ===" << std::endl;
+	std::cout << YELLOW << "=== Construction/destruction chaining ===" << RESET << std::endl;
 	{
-		std::cout << "-- Creating ClapTrap --" << std::endl;
+		std::cout << YELLOW << "-- Creating ClapTrap --" << RESET << std::endl;
 		ClapTrap ct("BaseBot", 10, 10, 0);
-		std::cout << "-- Creating ScavTrap --" << std::endl;
+		std::cout << YELLOW << "-- Creating ScavTrap --" << RESET << std::endl;
 		ScavTrap sv("ScavBot");
-		std::cout << "-- Creating FragTrap --" << std::endl;
+		std::cout << YELLOW << "-- Creating FragTrap --" << RESET << std::endl;
 		FragTrap ft("FragBot");
-		std::cout << "-- Leaving scope --" << std::endl;
+		std::cout << YELLOW << "-- Leaving scope --" << RESET << std::endl;
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== Special abilities ===" << std::endl;
+	std::cout << YELLOW << "=== Special abilities ===" << RESET << std::endl;
 	{
 		ScavTrap guard("Guardian");
 		guard.guardGate();
@@ -54,7 +57,7 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== FragTrap combat ===" << std::endl;
+	std::cout << YELLOW << "=== FragTrap combat ===" << RESET << std::endl;
 	{
 		FragTrap ft("Warrior");
 		ft.attack("Enemy");
@@ -69,7 +72,7 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== FragTrap energy depletion (100 EP) ===" << std::endl;
+	std::cout << YELLOW << "=== FragTrap energy depletion (100 EP) ===" << RESET << std::endl;
 	{
 		FragTrap bot("Marathon");
 		for (int i = 0; i < 100; i++)
@@ -80,7 +83,7 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== ScavTrap vs FragTrap side by side ===" << std::endl;
+	std::cout << YELLOW << "=== ScavTrap vs FragTrap side by side ===" << RESET << std::endl;
 	{
 		ScavTrap sv("Alpha");
 		FragTrap ft("Beta");

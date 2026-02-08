@@ -2,9 +2,12 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
+#define RESET  "\033[0m"
+#define YELLOW "\033[33m"
+
 int main(void)
 {
-	std::cout << "=== ScavTrap Orthodox Canonical Form ===" << std::endl;
+	std::cout << YELLOW << "=== ScavTrap Orthodox Canonical Form ===" << RESET << std::endl;
 	{
 		ScavTrap a;
 		ScavTrap b("Bravo");
@@ -14,7 +17,7 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== ScavTrap stats check ===" << std::endl;
+	std::cout << YELLOW << "=== ScavTrap stats check ===" << RESET << std::endl;
 	{
 		ScavTrap sv("Scout");
 		std::cout << "HP: " << sv.getHp()
@@ -23,24 +26,24 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== Construction/destruction chaining ===" << std::endl;
+	std::cout << YELLOW << "=== Construction/destruction chaining ===" << RESET << std::endl;
 	{
-		std::cout << "-- Creating ClapTrap --" << std::endl;
+		std::cout << YELLOW << "-- Creating ClapTrap --" << RESET << std::endl;
 		ClapTrap ct("BaseBot", 10, 10, 0);
-		std::cout << "-- Creating ScavTrap --" << std::endl;
+		std::cout << YELLOW << "-- Creating ScavTrap --" << RESET << std::endl;
 		ScavTrap sv("DerivedBot");
-		std::cout << "-- Leaving scope --" << std::endl;
+		std::cout << YELLOW << "-- Leaving scope --" << RESET << std::endl;
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== ScavTrap special ability ===" << std::endl;
+	std::cout << YELLOW << "=== ScavTrap special ability ===" << RESET << std::endl;
 	{
 		ScavTrap guard("Guardian");
 		guard.guardGate();
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== ScavTrap combat ===" << std::endl;
+	std::cout << YELLOW << "=== ScavTrap combat ===" << RESET << std::endl;
 	{
 		ScavTrap tank("Tank");
 		tank.attack("Enemy");
@@ -51,7 +54,7 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== ScavTrap energy depletion (50 EP) ===" << std::endl;
+	std::cout << YELLOW << "=== ScavTrap energy depletion (50 EP) ===" << RESET << std::endl;
 	{
 		ScavTrap bot("Energetic");
 		for (int i = 0; i < 50; i++)
@@ -62,7 +65,7 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== ScavTrap overkill ===" << std::endl;
+	std::cout << YELLOW << "=== ScavTrap overkill ===" << RESET << std::endl;
 	{
 		ScavTrap bot("Fragile");
 		bot.takeDamage(100);

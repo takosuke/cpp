@@ -10,9 +10,8 @@ WrongAnimal::WrongAnimal(std::string type) : _type(type)
 	std::cout << "wrong animal base parametrized constructor called" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal& a)
+WrongAnimal::WrongAnimal(const WrongAnimal& a): _type(a._type)
 {
-	*this = a;
 	std::cout << "wrong animal base copy constructor called" << std::endl;
 }
 
@@ -26,6 +25,11 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal& a)
 WrongAnimal::~WrongAnimal(void)
 {
 	std::cout << "wrong animal base destructor called" << std::endl;
+}
+
+std::string WrongAnimal::getType(void) const
+{
+	return _type;
 }
 
 void WrongAnimal::makeSound(void) const

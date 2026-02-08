@@ -2,7 +2,7 @@ CFLAGS = -ggdb -Wall -Wextra -Werror -std=c++98
 CC = g++
 
 TARGET = FragTrap
-SOURCE = $(wildcard *.cpp)
+SOURCE = ClapTrap.cpp FragTrap.cpp ScavTrap.cpp main.cpp
 OBJS := $(SOURCE:.cpp=.o)
 
 .PHONY: all

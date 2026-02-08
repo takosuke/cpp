@@ -1,24 +1,29 @@
 #include "ScavTrap.hpp"
 #include <iostream>
 
-ScavTrap::ScavTrap(void) : ClapTrap("Default", 100, 50, 20) 
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define CYAN    "\033[36m"
+
+ScavTrap::ScavTrap(void) : ClapTrap("Default", 100, 50, 20)
 {
-	std::cout << "ScavTrap created with default constructor" << std::endl;
+	std::cout << GREEN << "ScavTrap created with default constructor" << RESET << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20) 
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20)
 {
-	std::cout << "ScavTrap created with parametrized constructor" << std::endl;
+	std::cout << GREEN << "ScavTrap created with parametrized constructor" << RESET << std::endl;
 }
 
 ScavTrap::ScavTrap( const ScavTrap& st): ClapTrap(st)
 {
-	std::cout << "ScavTrap " << st._name << " copy constructor called" << std::endl;
+	std::cout << GREEN << "ScavTrap " << st._name << " copy constructor called" << RESET << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap& st)
 {
-	std::cout << "Used assigned operator to copy " << st.getName() << std::endl;
+	std::cout << GREEN << "Used assigned operator to copy " << st.getName() << RESET << std::endl;
 	if (this != &st)
 	{
 		this->_name = st.getName();
@@ -31,19 +36,19 @@ ScavTrap &ScavTrap::operator=(const ScavTrap& st)
 
 ScavTrap::~ScavTrap(void)
 {
-	std::cout << "Destructor used on " << _name << std::endl;
+	std::cout << RED << "Destructor used on " << _name << RESET << std::endl;
 }
 
 void ScavTrap::attack(const std::string& target)
 {
 	if (_hp <= 0)
-		std::cout << _name << " can't attack because it's out of hit points" << std::endl;
+		std::cout << CYAN << _name << " can't attack because it's out of hit points" << RESET << std::endl;
 	else if (_ep <= 0)
-		std::cout << _name << " can't attack because it's out of energy points" << std::endl;
+		std::cout << CYAN << _name << " can't attack because it's out of energy points" << RESET << std::endl;
 	else
 	{
-		std::cout << "ScavTrap " << _name << " attacks " << target << " inflicting "
-			<< _damage << " points of damage" << std::endl;
+		std::cout << CYAN << "ScavTrap " << _name << " attacks " << target << " inflicting "
+			<< _damage << " points of damage" << RESET << std::endl;
 		_ep--;
 	}
 }

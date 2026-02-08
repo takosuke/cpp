@@ -1,9 +1,12 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
+#define RESET  "\033[0m"
+#define YELLOW "\033[33m"
+
 int main(void)
 {
-	std::cout << "=== Orthodox Canonical Form ===" << std::endl;
+	std::cout << YELLOW << "=== Orthodox Canonical Form ===" << RESET << std::endl;
 	{
 		ClapTrap a;
 		ClapTrap b("Bravo");
@@ -13,7 +16,7 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== Basic actions ===" << std::endl;
+	std::cout << YELLOW << "=== Basic actions ===" << RESET << std::endl;
 	{
 		ClapTrap kuro("Kuro");
 		std::cout << "HP: " << kuro.getHp()
@@ -27,7 +30,7 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== Energy depletion ===" << std::endl;
+	std::cout << YELLOW << "=== Energy depletion ===" << RESET << std::endl;
 	{
 		ClapTrap bot("EnergyBot");
 		for (int i = 0; i < 10; i++)
@@ -38,7 +41,7 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== Death and post-death actions ===" << std::endl;
+	std::cout << YELLOW << "=== Death and post-death actions ===" << RESET << std::endl;
 	{
 		ClapTrap weak("Weak");
 		weak.takeDamage(10);
@@ -49,7 +52,7 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== Overkill damage ===" << std::endl;
+	std::cout << YELLOW << "=== Overkill damage ===" << RESET << std::endl;
 	{
 		ClapTrap bot("Glass");
 		bot.takeDamage(9999);
@@ -57,7 +60,7 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== Mixed energy drain (attack + repair) ===" << std::endl;
+	std::cout << YELLOW << "=== Mixed energy drain (attack + repair) ===" << RESET << std::endl;
 	{
 		ClapTrap bot("Mixed");
 		for (int i = 0; i < 5; i++)

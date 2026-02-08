@@ -4,9 +4,12 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
+#define RESET  "\033[0m"
+#define YELLOW "\033[33m"
+
 int main(void)
 {
-	std::cout << "=== DiamondTrap Orthodox Canonical Form ===" << std::endl;
+	std::cout << YELLOW << "=== DiamondTrap Orthodox Canonical Form ===" << RESET << std::endl;
 	{
 		DiamondTrap a;
 		DiamondTrap b("Bravo");
@@ -16,7 +19,7 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== DiamondTrap stats check (HP:100 EP:50 DMG:30) ===" << std::endl;
+	std::cout << YELLOW << "=== DiamondTrap stats check (HP:100 EP:50 DMG:30) ===" << RESET << std::endl;
 	{
 		DiamondTrap dt("Diamond");
 		std::cout << "HP: " << dt.getHp()
@@ -25,35 +28,35 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== Construction/destruction chaining ===" << std::endl;
+	std::cout << YELLOW << "=== Construction/destruction chaining ===" << RESET << std::endl;
 	{
-		std::cout << "-- Creating ClapTrap --" << std::endl;
+		std::cout << YELLOW << "-- Creating ClapTrap --" << RESET << std::endl;
 		ClapTrap ct("BaseBot", 10, 10, 0);
-		std::cout << "-- Creating ScavTrap --" << std::endl;
+		std::cout << YELLOW << "-- Creating ScavTrap --" << RESET << std::endl;
 		ScavTrap sv("ScavBot");
-		std::cout << "-- Creating FragTrap --" << std::endl;
+		std::cout << YELLOW << "-- Creating FragTrap --" << RESET << std::endl;
 		FragTrap ft("FragBot");
-		std::cout << "-- Creating DiamondTrap --" << std::endl;
+		std::cout << YELLOW << "-- Creating DiamondTrap --" << RESET << std::endl;
 		DiamondTrap dt("DiaBot");
-		std::cout << "-- Leaving scope --" << std::endl;
+		std::cout << YELLOW << "-- Leaving scope --" << RESET << std::endl;
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== DiamondTrap whoAmI ===" << std::endl;
+	std::cout << YELLOW << "=== DiamondTrap whoAmI ===" << RESET << std::endl;
 	{
 		DiamondTrap dt("Hero");
 		dt.whoAmI();
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== DiamondTrap attack (uses ScavTrap) ===" << std::endl;
+	std::cout << YELLOW << "=== DiamondTrap attack (uses ScavTrap) ===" << RESET << std::endl;
 	{
 		DiamondTrap dt("Attacker");
 		dt.attack("Enemy");
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== DiamondTrap combat ===" << std::endl;
+	std::cout << YELLOW << "=== DiamondTrap combat ===" << RESET << std::endl;
 	{
 		DiamondTrap dt("Tank");
 		dt.attack("Enemy");
@@ -64,7 +67,7 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	std::cout << "=== DiamondTrap special abilities ===" << std::endl;
+	std::cout << YELLOW << "=== DiamondTrap special abilities ===" << RESET << std::endl;
 	{
 		DiamondTrap dt("Multi");
 		dt.guardGate();

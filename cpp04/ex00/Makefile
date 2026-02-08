@@ -1,8 +1,8 @@
 CFLAGS = -ggdb -Wall -Wextra -Werror -std=c++98
-CC = g++
+CC = c++
 
 TARGET = polymorphism
-SOURCE = $(wildcard *.cpp)
+SOURCE = Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp main.cpp
 OBJS := $(SOURCE:.cpp=.o)
 
 .PHONY: all
@@ -22,7 +22,5 @@ clean:
 fclean: clean
 	rm -f $(TARGET)
 
-
 .PHONY: re
 re: clean all
-
