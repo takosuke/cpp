@@ -6,11 +6,11 @@
 class Bureaucrat
 {
 	private:
-		std::string _name;
+		const std::string _name;
 		int _grade;
 		const static int _min_grade = 150;
 		const static int _max_grade = 1;
-		static unsigned int validateGrade(unsigned int grade);
+		static int validateGrade(int grade);
 	public:
 		Bureaucrat();
 		Bureaucrat(std::string name, int grade);

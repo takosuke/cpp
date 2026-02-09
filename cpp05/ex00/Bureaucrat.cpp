@@ -2,7 +2,10 @@
 
 std::ostream &operator<<(std::ostream & out, const Bureaucrat& burro)
 {
-	out << burro.getName();
+	out << burro.getName()
+		<< ", bureaucrat grade "
+		<< burro.getGrade()
+		<< ".";
 	return out;
 }
 
@@ -13,25 +16,22 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(valida
 {
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& burro) 
+Bureaucrat::Bureaucrat(const Bureaucrat& burro): 
+	_name(burro._name),
+	_grade(burro._grade)
 {
-	_name = burro._name;
-	_grade = burro._grade;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& burro)
 {
 	if (this != &burro)
-	{
-		_name = burro._name;
 		_grade = burro._grade;
-	}
 	return *this;
 }
 
 Bureaucrat::~Bureaucrat() {}
 
-unsigned int Bureaucrat::validateGrade(unsigned int grade)
+int Bureaucrat::validateGrade(int grade)
 {
 	if (grade < _max_grade)
 		throw Bureaucrat::GradeTooHighException("Maximum grade is 1");
