@@ -1,3 +1,4 @@
+#include <cctype>
 #include <iomanip>
 #include <memory>
 #include <string>
@@ -76,7 +77,6 @@ void ScalarConverter::printInt(std::string num)
 void ScalarConverter::printChar(char num)
 {
 	int x = static_cast<int>(num);
-	std::cout << "we are here: " << x << std::endl;
 	double d = static_cast<double>(num);
 	float f = static_cast<float>(num);
 	if (x >= 32 && x < 127)
@@ -92,9 +92,8 @@ NumType::Value ScalarConverter::checkType(std::string num)
 {
 	char *end;
 	long n = std::strtol(num.c_str(), &end, 10);
-	if (num.length() == 1 && std::isprint(num[0]))
+	if (num.length() == 1 && std::isprint(num[0]) && !std::isdigit(num[0]))
 	{
-		std::cout << "so its a char" << std::endl;
 		return NumType::Char;
 	}
 	if (*end == '\0' && n <= INT_MAX && n >= INT_MIN)
@@ -118,12 +117,10 @@ void ScalarConverter::convert(std::string num)
 		if (num == special[i])
 			printSpecial(num);
 	NumType::Value type = checkType(num);
-	if (type == NumType::Int || type == NumType::Char)
+	if (type == NumType::Int)
 		printInt(num);
-	/*
 	else if (type == NumType::Char)
 		printChar(num[0]);
-		*/
 	else if (type == NumType::Double || type == NumType::Float)
 		printDoubleFloat(num);
 	else
