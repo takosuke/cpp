@@ -1,6 +1,5 @@
 #include <cctype>
 #include <iomanip>
-#include <memory>
 #include <string>
 #include <iostream>
 #include <cstdlib>
@@ -29,70 +28,6 @@ void ScalarConverter::printSpecial(std::string num)
 	std::cout << "double: " << num << std::endl;
 }
 
-/*
-void ScalarConverter::printFloat(std::string num)
-{
-	double f = std::strtof(num.c_str(), NULL);
-	int x = static_cast<int>(f);
-	char c = static_cast<char>(x);
-	float d = static_cast<float>(f);
-	if (x >= 32 && x <= 127)
-		std::cout << "char: " << c << std::endl;
-	else
-		std::cout << "char: non displayable" << std::endl;
-	std::cout << "int: " << x << std::endl;
-	std::cout << "double: " << d << std::endl;
-	std::cout << "float: " << f << "f" << std::endl;
-}
-
-void ScalarConverter::printDouble(std::string num)
-{
-	double d = std::strtod(num.c_str(), NULL);
-	int x = static_cast<int>(d);
-	char c = static_cast<char>(x);
-	float f = static_cast<float>(d);
-	if (x >= 32 && x <= 127)
-		std::cout << "char: " << c << std::endl;
-	else
-		std::cout << "char: non displayable" << std::endl;
-	std::cout << "int: " << x << std::endl;
-	std::cout << "double: " << d << std::endl;
-	std::cout << "float: " << f << "f" << std::endl;
-}
-
-void ScalarConverter::printInt(std::string num)
-{
-	int x = std::atoi(num.c_str());
-	char c = static_cast<char>(x);
-	double d = static_cast<double>(x);
-	float f = static_cast<float>(x);
-	if (x >= 32 && x <= 127)
-		std::cout << "char: " << c << std::endl;
-	else
-		std::cout << "char: non displayable" << std::endl;
-	std::cout << "int: " << x << std::endl;
-	std::cout << std::fixed << std::setprecision(1);
-	std::cout << "double: " << d << std::endl;
-	std::cout << "float: " << f << "f" << std::endl;
-}
-
-void ScalarConverter::printChar(char num)
-{
-	int x = static_cast<int>(num);
-	double d = static_cast<double>(num);
-	float f = static_cast<float>(num);
-	if (x >= 32 && x < 127)
-		std::cout << "char: " << num << std::endl;
-	else
-		std::cout << "char: non displayable" << std::endl;
-	std::cout << "int: " << x << std::endl;
-	std::cout << std::fixed << std::setprecision(1);
-	std::cout << "double: " << d << std::endl;
-	std::cout << "float: " << f << "f" << std::endl;
-}
-*/
-
-
 NumType::Value ScalarConverter::checkType(std::string num)
 {
 	char *end;
@@ -103,6 +38,8 @@ NumType::Value ScalarConverter::checkType(std::string num)
 	}
 	if (*end == '\0' && n <= INT_MAX && n >= INT_MIN)
 		return NumType::Int;
+	if (*end == '\0')
+		return NumType::Double;
 	if (*end == '.')
 	{
 		std::strtod(num.c_str(), &end);
@@ -164,16 +101,4 @@ void ScalarConverter::convert(std::string num)
 	}
 	double d = parseNum(num, type);
 	printNum(d);
-	/*
-	if (type == NumType::Int)
-		printInt(num);
-	else if (type == NumType::Char)
-		printChar(num[0]);
-	else if (type == NumType::Double)
-		printDouble(num);
-	else if (type == NumType::Float)
-		printFloat(num);
-	else
-		std::cout << "Invalid input" << std::endl;
-		*/
 }
