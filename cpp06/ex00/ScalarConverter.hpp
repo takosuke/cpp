@@ -13,13 +13,17 @@ class ScalarConverter
 		ScalarConverter(const ScalarConverter &other);
 		ScalarConverter &operator=(const ScalarConverter &other);
 		~ScalarConverter();
-//		static void printAll(char c, int i, double d, float f);
+
+		static NumType::Value checkType(std::string num);
+		static double parseNum(std::string num, NumType::Value type);
 		static void printSpecial(std::string num);
+		static void printNum(double d);
+		/*
 		static void printInt(std::string num);
 		static void printChar(char num);
 		static void printDouble(std::string num);
 		static void printFloat(std::string num);
-		static NumType::Value checkType(std::string num);
+		*/
 
 	public:
 		static void convert(std::string num);
