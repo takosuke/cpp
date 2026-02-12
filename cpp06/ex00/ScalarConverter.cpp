@@ -41,14 +41,27 @@ void ScalarConverter::printSpecial(std::string num)
 	std::cout << "int: impossible." << std::endl;
 	std::cout << "float: " << num << "f" << std::endl;
 	std::cout << "double: " << num << std::endl;
-
 }
 
-void ScalarConverter::printDoubleFloat(std::string num)
+void ScalarConverter::printFloat(std::string num)
 {
-	int x = std::atoi(num.c_str());
-	double d = static_cast<double>(x);
-	float f = static_cast<float>(x);
+	double f = std::strtof(num.c_str(), NULL);
+	int x = static_cast<int>(f);
+	float d = static_cast<float>(f);
+	if (x >= 32 && x <= 127)
+		std::cout << "Char: " << x << std::endl;
+	else
+		std::cout << "Char: non displayable" << std::endl;
+	std::cout << "int: " << x << std::endl;
+	std::cout << "double: " << d << std::endl;
+	std::cout << "float: " << f << "f" << std::endl;
+}
+
+void ScalarConverter::printDouble(std::string num)
+{
+	double d = std::strtod(num.c_str(), NULL);
+	int x = static_cast<int>(d);
+	float f = static_cast<float>(d);
 	if (x >= 32 && x <= 127)
 		std::cout << "Char: " << x << std::endl;
 	else
@@ -110,20 +123,23 @@ NumType::Value ScalarConverter::checkType(std::string num)
 }
 
 void ScalarConverter::convert(std::string num)
-
 {
-	std::string special[] = {"nanf", "inff", "-inff", "nan", "-inf", "inf"};
-	for (int i = 0; i < 6; i++)
-		if (num == special[i])
-			printSpecial(num);
+	std::string special_d[] = {"nan", "-inf", "+inf"};
+	std::string special_f[] = {"nanf", "-inff", "+inff"};
+	for (int i = 0; i < 3; i++)
+		if (num == special_d[i] || num == special_f[i]) {
+			printSpecial(special_d[i]);
+			return ; 
+		}
 	NumType::Value type = checkType(num);
 	if (type == NumType::Int)
 		printInt(num);
 	else if (type == NumType::Char)
 		printChar(num[0]);
-	else if (type == NumType::Double || type == NumType::Float)
-		printDoubleFloat(num);
+	else if (type == NumType::Double)
+		printDouble(num);
+	else if (type == NumType::Float)
+		printFloat(num);
 	else
 		std::cout << "whatever you input was definitely not a number" << std::endl;
-
 }

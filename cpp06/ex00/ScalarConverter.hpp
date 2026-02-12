@@ -17,7 +17,8 @@ class ScalarConverter
 		static void printSpecial(std::string num);
 		static void printInt(std::string num);
 		static void printChar(char num);
-		static void printDoubleFloat(std::string num);
+		static void printDouble(std::string num);
+		static void printFloat(std::string num);
 		static NumType::Value checkType(std::string num);
 
 	public:
