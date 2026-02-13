@@ -2,7 +2,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 CC = c++
 
 TARGET = burrocracia
-SOURCE = Bureaucrat.cpp AForm.cpp main.cpp PresidentialPardonForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
+SOURCE = Bureaucrat.cpp AForm.cpp main.cpp PresidentialPardonForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp Intern.cpp
 OBJS := $(SOURCE:.cpp=.o)
 
 .PHONY: all

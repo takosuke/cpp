@@ -73,6 +73,8 @@ void ScalarConverter::printNum(double d)
 		std::cout << std::fixed << std::setprecision(1);
 	std::cout << "double: " << d << std::endl;
 	std::cout << "float: " << f << "f" << std::endl;
+	std::cout.unsetf(std::ios::fixed);
+	std::cout << std::setprecision(6);
 }
 
 double ScalarConverter::parseNum(std::string num, NumType::Value type)

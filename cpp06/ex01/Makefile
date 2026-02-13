@@ -1,8 +1,8 @@
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -ggdb -Wall -Wextra -Werror -std=c++98
 CC = c++
 
-TARGET = burrocracia
-SOURCE = Bureaucrat.cpp AForm.cpp main.cpp PresidentialPardonForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
+TARGET = serial_serializer
+SOURCE = Serializer.cpp main.cpp
 OBJS := $(SOURCE:.cpp=.o)
 
 .PHONY: all
@@ -23,4 +23,4 @@ fclean: clean
 	rm -f $(TARGET)
 
 .PHONY: re
-re: clean all
+re: fclean all
