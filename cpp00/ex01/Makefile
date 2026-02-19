@@ -2,10 +2,10 @@ CFLAGS = -ggdb -Wall -Wextra -Werror -std=c++98
 CC = c++
 
 TARGET = phonebook_app
-SOURCE = $(wildcard *.cpp)
+SOURCE = Contact.cpp PhoneBook.cpp main.cpp
 OBJS := $(SOURCE:.cpp=.o)
 
-.PHONY: all
+.PHONY: all clean fclean re
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
@@ -14,13 +14,11 @@ $(TARGET): $(OBJS)
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
-.PHONY: clean
 clean:
-	rm $(OBJS)
+	rm -f $(OBJS)
 
-.PHONY: fclean
 fclean: clean
 	rm -f $(TARGET)
 
-.PHONY: re
-re: fclean all
+re: fclean 
+	make all

@@ -4,18 +4,16 @@ CC = g++
 TARGET = megaphone
 SOURCE = megaphone.cpp
 
-.PHONY: all
+.PHONY: all clean fclean re
 all: $(TARGET)
 
 $(TARGET): $(SOURCE)
 	$(CC) $(CFLAGS) $< -o $@
 
-.PHONY: clean
 clean:
 	rm -f $(TARGET)
 
-.PHONY: fclean
 fclean: clean
 
-.PHONY: re
-re: fclean all
+re: fclean 
+	make all
