@@ -9,6 +9,7 @@ Brain::Brain()
 Brain::Brain(const Brain &b)
 {
 	*this = b;
+	//TODO what
 	std::cout << "Brain copy constructor called" << std::endl;
 }
 

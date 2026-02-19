@@ -1,8 +1,8 @@
 CFLAGS = -ggdb -Wall -Wextra -Werror -std=c++98
 CC = c++
 
-TARGET = la_excepcion
-SOURCE = Bureaucrat.cpp Form.cpp main.cpp
+TARGET = span
+SOURCE = Span.cpp main.cpp
 OBJS := $(SOURCE:.cpp=.o)
 
 .PHONY: all
@@ -23,5 +23,5 @@ fclean: clean
 	rm -f $(TARGET)
 
 .PHONY: re
-re: clean
+re: fclean 
 	make all
