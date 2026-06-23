@@ -9,5 +9,6 @@ int main()
 	std::cout << "Serialized: " << s << std::endl;
 	Data* ds = Serializer::deserialize(s);
 	std::cout << "Deserialized: " << ds->name << std::endl;
+	std::cout << (ds == &d ? "OK: Same pointer" : "KO: Different Pointer" ) << std::endl;
 	return 0;
 }

@@ -15,6 +15,10 @@ int main(int argc, char** argv)
 	}
 	else
 	{
+		std::cout << COLOR_CYAN << "Test: Empty string" << COLOR_RESET << std::endl;
+		std::cout << "" << std::endl;
+		ScalarConverter::convert("");
+
 		std::cout << COLOR_CYAN << "Test: Input chars" << COLOR_RESET << std::endl;
 		std::cout << "A" << std::endl;
 		ScalarConverter::convert("A");

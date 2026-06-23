@@ -15,9 +15,11 @@ class ScalarConverter
 		~ScalarConverter();
 
 		static NumType::Value checkType(std::string num);
-		static double parseNum(std::string num, NumType::Value type);
 		static void printSpecial(std::string num);
-		static void printNum(double d);
+		static void printFromChar(char c);
+		static void printFromInt(int n);
+		static void printFromFloat(float f);
+		static void printFromDouble(double d);
 
 	public:
 		static void convert(std::string num);
